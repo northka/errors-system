@@ -1,0 +1,23 @@
+{
+  "name": "errors-system",
+  "version": "0.0.1",
+  "description": "an error system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northka/errors-system.git"
+  },
+  "keywords": [
+    "error",
+    "class"
+  ],
+  "author": "northka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/northka/errors-system/issues"
+  },
+  "homepage": "https://github.com/northka/errors-system#readme"
+}
