@@ -4,12 +4,9 @@
 const AbstractError = require('./AbstractError')
 const util = require('util')
 
-function HttpError(msg, constr) {
-    if (!(this instanceof AbstractError)) {
-        return new HttpError(message);
-    }
-    Error.captureStackTrace(this, constr || this.constructor)
-    this.message = msg || 'Error'
+function HttpError(msg) {
+    msg = msg || 'Http Error'
+    HttpError.super_.call(this, msg, this.constructor)
 }
 
 util.inherits(HttpError, AbstractError)
