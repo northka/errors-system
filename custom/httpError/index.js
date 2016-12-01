@@ -13,29 +13,27 @@ const httpErrorList   = require('./errorList')
  * @param {Object}        properties
  */
 function HttpErrors(statusCode, messageOrProperties, properties){
-    if(!(this instanceof httpErrors)){
+    if(!(this instanceof HttpErrors)){
         return new HttpErrors(statusCode, messageOrProperties, properties)
     }
+
     statusCode = statusCode || 500
     properties = properties || {}
+    HttpErrors.super_.call(this, httpStatusCodes[statusCode] || statusCode + 'Error', this.constructor)
+    let message
     if(messageOrProperties instanceof Object){
         properties = messageOrPropertiess
-        let message
         if(properties.message){
             message = properties.message
         }else{
-            if(httpErrorList[statusCode]){
-                message = httpErrorList[statusCode]
-            }else{
-                message = httpErrorList['500']
-            }
+            message = httpErrorList[statusCode] && httpErrorList[statusCode]
         }
         HttpErrors.super_.call(this, message, this.constructor)
     }else if(typeof messageOrProperties === 'string'){
-        HttpErrors.super_.call(this, messageOrProperties, this.constructor)
+        message = messageOrProperties
     }
+    this.name = message || httpErrorList['500']
     Object.assign(this, properties)
-    this.name = httpStatusCodes[statusCode] || statusCode + 'Error'
     this.statusCode = statusCode
     this.status     = statusCode
 }
