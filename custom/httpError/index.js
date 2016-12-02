@@ -4,7 +4,7 @@
 const httpStatusCodes = require('http').STATUS_CODES
 const util            = require('util')
 
-const httpError       = require('../../base/httpError')
+const HttpError       = require('../../base/httpError')
 const httpErrorList   = require('./errorList')
 /**
  * cutom httpError
@@ -37,5 +37,6 @@ function HttpErrors(statusCode, messageOrProperties, properties){
     this.statusCode = statusCode
     this.status     = statusCode
 }
-util.inherits(HttpErrors, httpError)
+util.inherits(HttpErrors, HttpError)
+
 module.exports = HttpErrors

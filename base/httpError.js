@@ -1,7 +1,7 @@
 /**
  * Created by northka.chen on 2016/11/24.
  */
-const AbstractError = require('./AbstractError')
+const AbstractError = require('./abstractError')
 const util = require('util')
 
 function HttpError(msg) {
