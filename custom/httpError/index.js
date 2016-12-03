@@ -34,7 +34,7 @@ function HttpErrors(statusCode, messageOrProperties, properties){
     }
     this.name = message || httpErrorList['500']
     Object.assign(this, properties)
-    this.statusCode = statusCode
+    this.code = statusCode
     this.status     = statusCode
 }
 util.inherits(HttpErrors, HttpError)

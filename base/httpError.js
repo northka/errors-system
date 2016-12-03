@@ -5,6 +5,9 @@ const AbstractError = require('./abstractError')
 const util = require('util')
 
 function HttpError(msg) {
+    if(!(this instanceof HttpError)){
+        return new HttpError(msg)
+    }
     msg = msg || 'Http Error'
     HttpError.super_.call(this, msg, this.constructor)
 }
