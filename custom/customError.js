@@ -12,7 +12,7 @@ function CustomErrors(statusOrCode, messageOrProperties, properties) {
     }
     statusOrCode = statusOrCode || 10000
     properties   = properties || {}
-    let errConfig = errorsCache.get(statusOrCode) || errorsCache.get(1000)
+    let errConfig = errorsCache.get(statusOrCode) || errorsCache.get(10000)
     CustomError.super_.call(this, errConfig.msg || 'customError', this.constructor)
     this.code = errConfig.code
     this.name = errConfig.name

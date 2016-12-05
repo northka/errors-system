@@ -20,7 +20,7 @@ module.exports = {
             }
         }
     },
-    add: (property) => {
-
+    add: (customeErrorConfig) => {
+        errorList.push(customeErrorConfig)
     }
 }
