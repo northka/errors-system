@@ -1,6 +1,6 @@
 {
   "name": "errors-system",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "an error system",
   "main": "index.js",
   "scripts": {
