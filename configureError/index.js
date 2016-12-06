@@ -12,13 +12,13 @@ function processErrorConfig(errorConfig) {
         throw new Error('custom Error need configure code')
     }
     error.name   = errorConfig.name || 'Custom Error'
-    error.msg    = 'customError'
+    error.msg    = errorConfig.msg  || errorConfig.message || 'customError'
     error.status = errorConfig.status || 500
     errorsCache.add(error)
 }
-function processProfile(errorsConfig){
+function processConfiguration(errorsConfig){
     if(Array.isArray(errorsConfig)){
-        let length = errorsConfig
+        let length = errorsConfig.length
         for(let i = 0 ; i < length ; i++){
             processErrorConfig(errorsConfig[i])
         }
@@ -33,14 +33,14 @@ function processProfile(errorsConfig){
 }
 
 module.exports = {
-    profile: function (fileName) {
+    configure: function (fileName) {
         if(typeof fileName ==='string'){
             fileName = path.isAbsolute(fileName)
                 ? fileName
                 : path.resolve(process.cwd(), fileName)
 
-            let profile = require(fileName)
-            processProfile(profile)
+            let configuration = require(fileName)
+            processConfiguration(configuration)
         }
     }
 }
