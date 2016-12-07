@@ -2,6 +2,7 @@
  * Created by northka.chen on 2016/12/1.
  */
 const HttpErrors = require('./httpError/index')
+const systemCustomError = require('./systemError/systemCustomError')
 const ErrorCache = require('./errorsCache')
 
 module.exports = {
@@ -13,6 +14,9 @@ module.exports = {
         if(typeof codeOrName === 'number'){
             if(codeOrName < 600){
                 return HttpErrors
+            }
+            if(codeOrName < 10000){
+                return systemCustomError
             }
             for(let i = 0 ; i < errorLength ; i++){
                 if(ErrorCache[i].code === codeOrName){

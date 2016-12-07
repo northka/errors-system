@@ -4,4 +4,6 @@
 const errorsSystem = require('../index')
 
 errorsSystem.configure('./test/configuration')
-throw new errorsSystem.CustomeError(10000)
+
+let CustomeError = errorsSystem.CustomError
+console.log(CustomeError)
