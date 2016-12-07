@@ -22,7 +22,7 @@ function processConfiguration(errorsConfig){
         for(let i = 0 ; i < length ; i++){
             processErrorConfig(errorsConfig[i])
         }
-    }else if((typeof errorsConfig=='object')&&errorsConfig.constructor==Object){
+    }else if((typeof errorsConfig=='object') && errorsConfig.constructor==Object){
         let keyArr = Object.keys(errorsConfig)
         let length = keyArr.length
         for(let i = 0 ; i < length ; i++){

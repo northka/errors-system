@@ -3,6 +3,6 @@ const configureError   = require('./configureError/index')
 configureError.configure('./test/configuration')
 throw new CustomError(10000)
 module.exports = {
-    CustomError:CustomError,
+    CustomError,
     configure: configureError.configure
 }
