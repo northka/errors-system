@@ -7,3 +7,4 @@ errorsSystem.configure('./test/configuration')
 
 let CustomeError = errorsSystem.CustomError
 console.log(CustomeError)
+throw  new errorsSystem.CustomError(10000)
